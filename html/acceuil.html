@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MétéoFlash - Météo en temps réel</title>
+    <meta name="description" content="MeteoFlash : consulte la météo actuelle, les prévisions horaires et sur 7 jours de n'importe quelle ville.">
+    <meta name="theme-color" content="#4F46E5">
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <a href="acceuil.html">
+            <img src="../images/image.png" alt="Logo MétéoFlash" class="logo">
+            <span class="title">Météo</span>
+        </a>
+        <div class="recherche">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search preview-icon" aria-hidden="true"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+            <input type="search" id="ville" placeholder="Rechercher une ville" aria-label="Rechercher une ville">
+        </div>
+        <div class="icons">
+            <!-- Icône Thème Clair/Sombre -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun-moon preview-icon" aria-hidden="true"><path d="M12 2v2"/><path d="M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715"/><path d="M16 12a4 4 0 0 0-4-4"/><path d="m19 5-1.256 1.256"/><path d="M20 12h2"/></svg>
+            <a href="parametres.html" style="color: inherit; display: flex;" aria-label="Paramètres">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings preview-icon" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></svg>
+            </a>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="side">
+        <a href="acceuil.html" class="nav-item actif" aria-current="page">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house preview-icon" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            <span>Accueil</span>
+        </a>
+        <a href="favoris.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star preview-icon" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+            <span>Favoris</span>
+        </a>
+        <a href="carte.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map preview-icon" aria-hidden="true"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg>
+            <span>Carte</span>
+        </a>
+        <a href="parametres.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings preview-icon" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></svg>
+            <span>Paramètres</span>
+        </a>
+    </aside>
+
+    <main>
+        <section class="actuelle">
+            <div class="lieu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                    <circle cx="12" cy="10" r="3" />
+                </svg>
+                <div>
+                    <h1 id="nom-ville">Oujda</h1>
+                    <p id="date-heure">Mardi 14 octobre 2025 • 21:00</p>
+                </div>
+            </div>
+            <div class="temperature-bloc">
+                <span class="icone-principale" id="icone-principale">🌙</span>
+                <div>
+                    <p class="temperature"><span id="temperature">18</span><sup>°C</sup></p>
+                    <p class="description" id="description">Ciel dégagé</p>
+                </div>
+            </div>
+            <ul class="infos">
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" />
+                    </svg>
+                    <div><span>Humidité</span><strong id="humidite">62%</strong></div>
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12.8 19.6A2 2 0 1 0 14 16H2" />
+                        <path d="M17.5 8a2.5 2.5 0 1 1 2 4H2" />
+                        <path d="M9.8 4.4A2 2 0 1 1 11 8H2" />
+                    </svg>
+                    <div><span>Vent</span><strong id="vent">12 km/h</strong></div>
+                </li>
+                <li>
+                    <svg class="jaune" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 2v8" />
+                        <path d="m4.93 10.93 1.41 1.41" />
+                        <path d="M2 18h2" />
+                        <path d="M20 18h2" />
+                        <path d="m19.07 10.93-1.41 1.41" />
+                        <path d="M22 22H2" />
+                        <path d="m8 6 4-4 4 4" />
+                        <path d="M16 18a4 4 0 0 0-8 0" />
+                    </svg>
+                    <div><span>Lever du soleil</span><strong id="lever">07:23</strong></div>
+                </li>
+                <li>
+                    <svg class="orange" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 10V2" />
+                        <path d="m4.93 10.93 1.41 1.41" />
+                        <path d="M2 18h2" />
+                        <path d="M20 18h2" />
+                        <path d="m19.07 10.93-1.41 1.41" />
+                        <path d="M22 22H2" />
+                        <path d="m16 6-4 4-4-4" />
+                        <path d="M16 18a4 4 0 0 0-8 0" />
+                    </svg>
+                    <div><span>Coucher du soleil</span><strong id="coucher">18:37</strong></div>
+                </li>
+            </ul>
+        </section>
+        <div class="previsions">
+
+            <!-- Horaires -->
+            <section class="bloc">
+                <div class="bloc-entete">
+                    <h2>Prévisions horaires</h2>
+                    <a href="previsionshoraires.html" class="voir-plus">Voir plus →</a>
+                </div>
+                <div class="liste-horaire" id="liste-horaire">
+                    <!-- JS remplira ces blocs ; en voici un exemple -->
+                    <div class="heure"><span>21:00</span><span class="emoji">🌙</span><strong>18°</strong></div>
+                    <div class="heure"><span>22:00</span><span class="emoji">🌙</span><strong>17°</strong></div>
+                    <div class="heure"><span>23:00</span><span class="emoji">🌙</span><strong>16°</strong></div>
+                    <div class="heure"><span>00:00</span><span class="emoji">🌙</span><strong>15°</strong></div>
+                    <div class="heure"><span>01:00</span><span class="emoji">☁️</span><strong>14°</strong></div>
+                    <div class="heure"><span>02:00</span><span class="emoji">☁️</span><strong>14°</strong></div>
+                    <div class="heure"><span>03:00</span><span class="emoji">🌙</span><strong>13°</strong></div>
+
+                </div>
+            </section>
+
+            <!-- 7 jours -->
+            <section class="bloc">
+                <div class="bloc-entete">
+                    <h2>Prévisions sur 7 jours</h2>
+                    <a href="previsions7jours.html" class="voir-plus">Voir plus →</a>
+                </div>
+                <ul class="liste-jours" id="liste-jours">
+                    <li><span class="jour">Mer. 15 oct.</span><span class="emoji">☀️</span><strong>22°</strong><span
+                            class="min">11°</span></li>
+                    <li><span class="jour">Jeu. 16 oct.</span><span class="emoji">☀️</span><strong>24°</strong><span
+                            class="min">12°</span></li>
+                    <li><span class="jour">Ven. 17 oct.</span><span class="emoji">⛅</span><strong>23°</strong><span
+                            class="min">13°</span></li>
+                    <li><span class="jour">Sam. 18 oct.</span><span class="emoji">🌧️</span><strong>21°</strong><span
+                            class="min">11°</span></li>
+                    <li><span class="jour">Dim. 19 oct.</span><span class="emoji">☀️</span><strong>22°</strong><span
+                            class="min">10°</span></li>
+                    <li><span class="jour">Lun. 20 oct.</span><span class="emoji">☀️</span><strong>24°</strong><span
+                            class="min">12°</span></li>
+                    <li><span class="jour">Mar. 21 oct.</span><span class="emoji">🌧️</span><strong>20°</strong><span
+                            class="min">11°</span></li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+    <script src="../app.js"></script>
+</body>
+
+</html>
